@@ -99,7 +99,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_l,      setsmfact,      {.f = -0.05} },
     { MODKEY,                       XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
-    { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+    { MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_Left,   viewtoleft,     {0} },
     { MODKEY,                       XK_Right,  viewtoright,    {0} },
     { MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
