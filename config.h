@@ -1,3 +1,4 @@
+#include <X11/XF86keysym.h>
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -48,8 +49,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    { "[]=",      tile },    /* first entry is default */
-    { "><>",      NULL },    /* no layout function means floating behavior */
+    { "[T]",      tile },    /* first entry is default */
+    { "[F]",      NULL },    /* no layout function means floating behavior */
     { "[M]",      monocle },
 };
 
@@ -67,14 +68,26 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[] = {"alacritty", NULL};
+static const char *termcmd[] = {"st", NULL};
+
+static const char *upvol[] = {"/home/liuyan/bin/scripts/vol-up.sh", NULL};
+static const char *downvol[] = {"/home/liuyan/bin/scripts/vol-down.sh", NULL};
+static const char *mutevol[] = {"/home/liuyan/bin/scripts/vol-toggle.sh", NULL};
+
+static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+static const char *suspendcmd[] = {"/home/liuyan/bin/scripts/suspend.sh", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
+    { 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
+    { 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
+    { 0,                   XF86XK_AudioRaiseVolume, spawn,     {.v = upvol   } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -86,7 +99,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_l,      setsmfact,      {.f = -0.05} },
     { MODKEY,                       XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
-    { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+    { MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
     { MODKEY,                       XK_Left,   viewtoleft,     {0} },
     { MODKEY,                       XK_Right,  viewtoright,    {0} },
     { MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
@@ -94,7 +107,7 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-    { MODKEY,                       XK_space,  setlayout,      {0} },
+    // { MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -107,7 +120,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
     { MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-    { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+    // { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+    { MODKEY,                       XK_space,  togglescratch,  {.v = scratchpadcmd } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
