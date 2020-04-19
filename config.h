@@ -67,8 +67,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = {"/home/liuyan/bin/scripts/dmenu_run_history", NULL};
 static const char *termcmd[] = {"st", NULL};
+static const char *lockcmd[] = {"slock", NULL};
 
 static const char *upvol[] = {"/home/liuyan/bin/scripts/vol-up.sh", NULL};
 static const char *downvol[] = {"/home/liuyan/bin/scripts/vol-down.sh", NULL};
@@ -77,14 +78,13 @@ static const char *mutevol[] = {"/home/liuyan/bin/scripts/vol-toggle.sh", NULL};
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
-static const char *suspendcmd[] = {"/home/liuyan/bin/scripts/suspend.sh", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = trayercmd } },
-    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
+    { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = lockcmd } },
     { 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
     { 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
     { 0,                   XF86XK_AudioRaiseVolume, spawn,     {.v = upvol   } },
@@ -116,8 +116,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
-    { MODKEY,                       XK_k,      hidewin,        {0} },
-    { MODKEY|ShiftMask,             XK_k,      restorewin,     {0} },
+    { MODKEY,                       XK_semicolon,      hidewin,        {0} },
+    { MODKEY|ShiftMask,             XK_semicolon,      restorewin,     {0} },
     { MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
     { MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
     // { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
