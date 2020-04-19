@@ -7,5 +7,5 @@ dropbox &
 electron-ssr &
 flameshot &
 goldendict &
-redshift &
+redshift -t 6000:3500 -l 32.9954:112.5364 &
 
