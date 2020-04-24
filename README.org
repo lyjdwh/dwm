@@ -33,6 +33,7 @@ necessary as root):
   - [[https://dwm.suckless.org/patches/pertag/][dwm-pertag-6.2.diff]]
   - [[https://dwm.suckless.org/patches/rotatestack/][dwm-rotatestack-20161021-ab9571b.diff]]
   - [[https://dwm.suckless.org/patches/scratchpad/][dwm-scratchpad-6.2.diff]]
+  - [[https://dwm.suckless.org/patches/tilegap/][dwm-tilegap-6.2.diff]]
 
 ** Running dwm
    
