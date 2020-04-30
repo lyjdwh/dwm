@@ -78,7 +78,7 @@ static const char *mutevol[] = {"/home/liuyan/bin/scripts/vol-toggle.sh", NULL};
 
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24","-e", "tmux",  NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -136,7 +136,7 @@ static Key keys[] = {
     TAGKEYS(                        XK_7,                      6)
     TAGKEYS(                        XK_8,                      7)
     TAGKEYS(                        XK_9,                      8)
-    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+    { MODKEY|ControlMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
