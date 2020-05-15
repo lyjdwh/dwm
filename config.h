@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"/home/liuyan/bin/scripts/dmenu_run", NULL};
+static const char *rofi_window[] = {"rofi", "-show", "window", NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char *lockcmd[] = {"slock", NULL};
 
@@ -83,6 +84,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24"
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_w,      spawn,          {.v = rofi_window } },
     { MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ControlMask,           XK_t,      spawn,          {.v = trayercmd } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = lockcmd } },
