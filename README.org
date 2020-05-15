@@ -1,15 +1,15 @@
 * my dwm build
-  
+
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 
 ** Requirements
-   
+
 In order to build dwm you need the Xlib header files.
 
 
 ** Installation
-   
+
 Edit config.mk to match your local setup (dwm is installed into
 the /usr/local namespace by default).
 
@@ -21,8 +21,8 @@ necessary as root):
 #+end_src
 
 ** Patches applied
-   
-  - [[https://dwm.suckless.org/patches/stackmfact/][dwm-6.0-smfact.diff]]                     
+
+  - [[https://dwm.suckless.org/patches/stackmfact/][dwm-6.0-smfact.diff]]
   - [[https://github.com/theniceboy/dwm][dwm-alpha-20180613-b69c870.diff]]
   - [[https://dwm.suckless.org/patches/autostart/][dwm-autostart-20161205-bb3bd6f.diff]]
   - [[https://dwm.suckless.org/patches/awesomebar/][dwm-awesomebar-20191003-80e2a76.diff]]
@@ -34,9 +34,11 @@ necessary as root):
   - [[https://dwm.suckless.org/patches/rotatestack/][dwm-rotatestack-20161021-ab9571b.diff]]
   - [[https://dwm.suckless.org/patches/scratchpad/][dwm-scratchpad-6.2.diff]]
   - [[https://dwm.suckless.org/patches/tilegap/][dwm-tilegap-6.2.diff]]
+  - [[https://dwm.suckless.org/patches/ewmhtags][ewmhtags-6.2.diff]]
+  - [[https://dwm.suckless.org/patches/focusonnetactive][dwm-focusonnetactive-6.2.diff]]
 
 ** Running dwm
-   
+
 Add the following line to your .xinitrc to start dwm using startx:
 
 #+begin_src bash
@@ -62,4 +64,3 @@ like this in your .xinitrc:
     done &
     exec dwm
 #+end_src
-
