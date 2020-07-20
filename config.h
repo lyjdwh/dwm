@@ -8,8 +8,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int minwsz    = 20;       /* Minimal heigt of a client for smfact */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "SourceCodePro:size=14" };
+static const char dmenufont[]       = "SourceCodePro:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -72,6 +72,7 @@ static const char *dmenucmd[] = {"/home/liuyan/bin/scripts/dmenu_run", NULL};
 static const char *rofi_window[] = {"rofi", "-show", "window", NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char *lockcmd[] = {"slock", NULL};
+static const char *ranger[] = {"st", "-e", "ranger", "-r","/home/liuyan/.config/ranger" , NULL};
 
 static const char *upvol[] = {"/home/liuyan/bin/scripts/vol-up.sh", NULL};
 static const char *downvol[] = {"/home/liuyan/bin/scripts/vol-down.sh", NULL};
@@ -79,12 +80,13 @@ static const char *mutevol[] = {"/home/liuyan/bin/scripts/vol-toggle.sh", NULL};
 
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24","-e", "tmux",  NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24",  NULL }; //"-e", "tmux"
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-    { MODKEY,                       XK_w,      spawn,          {.v = rofi_window } },
+    { MODKEY,                       XK_o,      spawn,          {.v = rofi_window } },
+    { MODKEY,                       XK_u,      spawn,          {.v = ranger } },
     { MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
     { MODKEY|ControlMask,           XK_t,      spawn,          {.v = trayercmd } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = lockcmd } },

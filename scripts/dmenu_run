@@ -2,7 +2,7 @@
 #cache=~/.cache/dmenu_run
 freq=~/.dmenu_history
 aliases=~/.zsh_aliases
-dmenucmd="dmenu -fn 'monospace-10'"
+dmenucmd="dmenu -fn 'monospace-14'"
 
 source $aliases
 
