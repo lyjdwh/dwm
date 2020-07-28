@@ -77,10 +77,12 @@ static const char *ranger[] = {"st", "-e", "ranger", "-r","/home/liuyan/.config/
 static const char *upvol[] = {"/home/liuyan/bin/scripts/vol-up.sh", NULL};
 static const char *downvol[] = {"/home/liuyan/bin/scripts/vol-down.sh", NULL};
 static const char *mutevol[] = {"/home/liuyan/bin/scripts/vol-toggle.sh", NULL};
+static const char *downbrightness[] = {"/home/liuyan/bin/scripts/brightness-down.sh", NULL};
+static const char *upbrightness[] = {"/home/liuyan/bin/scripts/brightness-up.sh", NULL};
 
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24",  NULL }; //"-e", "tmux"
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "100x30",  NULL }; //"-e", "tmux" -g 80x24
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -93,6 +95,8 @@ static Key keys[] = {
     { 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
     { 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
     { 0,                   XF86XK_AudioRaiseVolume, spawn,     {.v = upvol   } },
+    { 0,                   XF86XK_MonBrightnessUp, spawn,      {.v = upbrightness   } },
+    { 0,                   XF86XK_MonBrightnessDown, spawn,    {.v = downbrightness   } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
