@@ -56,7 +56,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
     { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
     { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -89,8 +89,8 @@ static Key keys[] = {
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_o,      spawn,          {.v = rofi_window } },
     { MODKEY,                       XK_u,      spawn,          {.v = ranger } },
-    { MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY|ControlMask,           XK_t,      spawn,          {.v = trayercmd } },
+    { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY,                       XK_t,      spawn,          {.v = trayercmd } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = lockcmd } },
     { 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
     { 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
@@ -106,7 +106,7 @@ static Key keys[] = {
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
     { MODKEY|ControlMask,           XK_h,      setsmfact,      {.f = +0.05} },
     { MODKEY|ControlMask,           XK_l,      setsmfact,      {.f = -0.05} },
-    { MODKEY,                       XK_Return, zoom,           {0} },
+    { MODKEY|ControlMask,           XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_Left,   viewtoleft,     {0} },
@@ -117,7 +117,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_k,      viewtoright,    {0} },
     { MODKEY|ShiftMask,             XK_h,      tagtoleft,      {0} },
     { MODKEY|ShiftMask,             XK_l,      tagtoright,     {0} },
-    { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+    { MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
     // { MODKEY,                       XK_space,  setlayout,      {0} },
