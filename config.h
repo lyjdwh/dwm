@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {"/home/liuyan/bin/scripts/dmenu_run", NULL};
-static const char *rofi_window[] = {"rofi", "-show", "window", NULL};
+static const char *rofi_window[] = {"/home/liuyan/bin/scripts/rofi-run.sh", NULL};
 static const char *termcmd[] = {"st", NULL};
 static const char *lockcmd[] = {"slock", NULL};
 static const char *ranger[] = {"st", "-e", "ranger", "-r","/home/liuyan/.config/ranger" , NULL};
