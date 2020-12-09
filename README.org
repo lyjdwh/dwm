@@ -36,6 +36,7 @@ necessary as root):
   - [[https://dwm.suckless.org/patches/tilegap/][dwm-tilegap-6.2.diff]]
   - [[https://dwm.suckless.org/patches/ewmhtags][ewmhtags-6.2.diff]]
   - [[https://dwm.suckless.org/patches/focusonnetactive][dwm-focusonnetactive-6.2.diff]]
+  - [[https://dwm.suckless.org/patches/sticky/][dwm-sticky-6.1.diff]]
 
 ** Running dwm
 
