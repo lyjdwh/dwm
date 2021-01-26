@@ -87,7 +87,7 @@ static const char *upbrightness[] = {"/home/liuyan/bin/scripts/brightness-up.sh"
 
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "100x30",  NULL }; //"-e", "tmux" -g 80x24
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34",  NULL }; //"-e", "tmux" -g 80x24
 static const char *switch2wechat[] = {"wmctrl", "-x", "-a", "Wechat", NULL};
 
 static Key keys[] = {
@@ -128,8 +128,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_h,      tagtoleft,      {0} },
     { MODKEY|ShiftMask,             XK_l,      tagtoright,     {0} },
     { MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[0]} },
-    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+    { MODKEY|ControlMask,           XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY|ShiftMask,             XK_m,      focusmaster,    {0} },
     // { MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ControlMask,           XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -138,7 +139,7 @@ static Key keys[] = {
     { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
     { MODKEY|ControlMask,           XK_comma,  tagmon,         {.i = -1 } },
     { MODKEY|ControlMask,           XK_period, tagmon,         {.i = +1 } },
-    { MODKEY|ControlMask,           XK_f,      fullscreen,     {0} },
+    { MODKEY,                       XK_f,      fullscreen,     {0} },
     { MODKEY,                       XK_semicolon,      hidewin,        {0} },
     { MODKEY|ControlMask,           XK_semicolon,      restorewin,     {0} },
     { MODKEY|ControlMask,           XK_j,      rotatestack,    {.i = +1 } },
