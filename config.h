@@ -88,7 +88,9 @@ static const char *upbrightness[] = {"/home/liuyan/bin/scripts/brightness-up.sh"
 static const char *trayercmd[] = {"/home/liuyan/bin/scripts/toggle-t.sh", NULL};
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34",  NULL }; //"-e", "tmux" -g 80x24
-static const char *switch2wechat[] = {"wmctrl", "-x", "-a", "Wechat", NULL};
+static const char *switch2wechat[] = {"wmctrl", "-x", "-a", "wechat", NULL};
+static const char *switch2emacs[] = {"wmctrl", "-x", "-a", "emacs", NULL};
+static const char *switch2chrome[] = {"wmctrl", "-x", "-a", "chrome", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -99,7 +101,9 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      spawn,          {.v = trayercmd } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = suspend} },
     { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = lockcmd} },
-    { Mod4Mask,                     XK_m,      spawn,          {.v = switch2wechat } },
+    { Mod4Mask,                     XK_n,      spawn,          {.v = switch2chrome } },
+    { Mod4Mask,                     XK_m,      spawn,          {.v = switch2emacs } },
+    { Mod4Mask,                     XK_comma,  spawn,          {.v = switch2wechat } },
     { 0,                            XK_F4,     spawn,          {.v = flameshot} },
     { 0,                   XF86XK_AudioLowerVolume, spawn,     {.v = downvol } },
     { 0,                   XF86XK_AudioMute,        spawn,     {.v = mutevol } },
