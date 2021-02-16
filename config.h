@@ -39,9 +39,8 @@ static const Rule rules[] = {
      *  WM_NAME(STRING) = title
      */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-    { "Wine",    NULL,     "微信",          1 << 8,    0,          0,           0,        -1 },
+  { "Wine",    NULL,     "微信",          1 << 8,    0,          0,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -91,6 +90,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const char *switch2wechat[] = {"wmctrl", "-x", "-a", "wechat", NULL};
 static const char *switch2emacs[] = {"wmctrl", "-x", "-a", "emacs", NULL};
 static const char *switch2chrome[] = {"wmctrl", "-x", "-a", "chrome", NULL};
+static const char *emacsanywhere[] = {"/home/liuyan/.emacs_anywhere/bin/run", NULL};
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
@@ -101,6 +101,7 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      spawn,          {.v = trayercmd } },
     { MODKEY|ControlMask,           XK_p,      spawn,          {.v = suspend} },
     { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = lockcmd} },
+    { MODKEY,                XK_bracketleft,   spawn,          {.v = emacsanywhere } },
     { Mod4Mask,                     XK_n,      spawn,          {.v = switch2chrome } },
     { Mod4Mask,                     XK_m,      spawn,          {.v = switch2emacs } },
     { Mod4Mask,                     XK_comma,  spawn,          {.v = switch2wechat } },
@@ -110,7 +111,7 @@ static Key keys[] = {
     { 0,                   XF86XK_AudioRaiseVolume, spawn,     {.v = upvol   } },
     { 0,                   XF86XK_MonBrightnessUp, spawn,      {.v = upbrightness   } },
     { 0,                   XF86XK_MonBrightnessDown, spawn,    {.v = downbrightness   } },
-	{ MODKEY,                       XK_s,      togglesticky,   {0} },
+    { MODKEY,                       XK_s,      togglesticky,   {0} },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -134,9 +135,9 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY|ControlMask,           XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY|ShiftMask,             XK_f,      togglefloating, {0} },
     { MODKEY|ShiftMask,             XK_m,      focusmaster,    {0} },
     // { MODKEY,                       XK_space,  setlayout,      {0} },
-    { MODKEY|ControlMask,           XK_space,  togglefloating, {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
     { MODKEY|ControlMask,           XK_0,      tag,            {.ui = ~0 } },
     { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
