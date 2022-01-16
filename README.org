@@ -38,6 +38,7 @@ necessary as root):
   - [[https://dwm.suckless.org/patches/focusonnetactive][dwm-focusonnetactive-6.2.diff]]
   - [[https://dwm.suckless.org/patches/sticky/][dwm-sticky-6.1.diff]]
   - [[https://dwm.suckless.org/patches/focusmaster/][dwm-focusmaster-20200717-bb2e722.diff]]
+  - [[https://dwm.suckless.org/patches/attachbelow/][dwm-attachbelow-toggleable-6.2.diff]]
 
 ** Running dwm
 

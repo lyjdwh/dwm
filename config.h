@@ -51,6 +51,7 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const float smfact     = 0.00; /* factor of tiled clients [0.00..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static int attachbelow = 0;    /* 1 means attach after the currently active window */
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
@@ -157,7 +158,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_semicolon,      restorewin,     {0} },
     { MODKEY|ControlMask,           XK_j,      rotatestack,    {.i = +1 } },
     { MODKEY|ControlMask,           XK_k,      rotatestack,    {.i = -1 } },
-    // { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+    { MODKEY,                       XK_grave,  toggleAttachBelow,  {0} },
     { MODKEY,                       XK_space,  togglescratch,  {.v = scratchpadcmd } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
